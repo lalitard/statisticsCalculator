@@ -16,7 +16,7 @@ class Statistics:
     def calculate_mode(self):
         try:
             return statistics.mode(self.values)
-        except:
+        except statistics.StatisticsError:
             return "Múltiples modas o no definida"
 
     def calculate_std_dev(self):
