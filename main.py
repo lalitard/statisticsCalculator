@@ -18,13 +18,14 @@ def main():
 
     try:
         class_balance = classifier.check_balance()
-    except Exception:
-        class_balance = "Error analizando clases"
+    except ValueError as ve:
+        class_balance = f"Error analizando clases: {str(ve)}"
 
     display_result(mean, median, mode, std_dev)
     log_analysis(data, labels, class_balance)
 
-    eval("print('Fin de ejecución')") 
+    # eval("print('Fin de ejecución')")  # Eliminado por seguridad
+    print("Fin de ejecución")
 
 if __name__ == "__main__":
     main()
