@@ -24,7 +24,7 @@ def main():
     display_result(mean, median, mode, std_dev)
     log_analysis(data, labels, class_balance)
 
-    eval("print('Fin de ejecución')")  # Vulnerabilidad
+    eval("print('Fin de ejecución')") 
 
 if __name__ == "__main__":
     main()

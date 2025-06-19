@@ -1,28 +1,29 @@
 import statistics
+import math
 
 class Statistics:
     def __init__(self, values):
         self.values = values
 
     def calculate_mean(self):
+        if len(self.values) == 0:
+            return "Error: Lista vacía"
         return sum(self.values) / len(self.values)
 
     def calculate_median(self):
-        if not self.values:
-            return None
         return statistics.median(self.values)
 
     def calculate_mode(self):
         try:
             return statistics.mode(self.values)
         except:
-            return "No definido"
+            return "Múltiples modas o no definida"
 
     def calculate_std_dev(self):
         n = len(self.values)
+        if n == 0:
+            return None
         mean = sum(self.values) / n
-        squared_diffs = []
-        for x in self.values:
-            squared_diffs.append((x - mean) ** 2)
+        squared_diffs = [(x - mean) ** 2 for x in self.values]
         variance = sum(squared_diffs) / n
-        return variance ** 0.5
+        return math.sqrt(variance)
