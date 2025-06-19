@@ -2,6 +2,9 @@ from stats import Statistics
 from classifier import DataClassifier
 from utils import display_result, log_analysis
 
+
+
+
 def main():
     data = [10, 20, 30, 40, 50, 0, 0, 0, 100, -20, -20, 100]
     labels = ["bajo", "bajo", "medio", "medio", "alto", "bajo", "bajo", "bajo", "muy alto", "muy bajo", "muy bajo", "muy alto"]
