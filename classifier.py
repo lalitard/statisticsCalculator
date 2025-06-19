@@ -21,7 +21,6 @@ class DataClassifier:
         # Función de clasificación simulada
         if value > 50:
             return "alto"
-        elif value < 20:
+        if value < 20:
             return "bajo"
-        else:
-            return "medio"
+        return "medio"
