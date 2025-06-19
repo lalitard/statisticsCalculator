@@ -1,17 +1,30 @@
 from stats import Statistics
-from utils import display_result
+from classifier import DataClassifier
+from utils import display_result, log_analysis
 
 def main():
-    data = [10, 20, 30, 40, 50, 0, 0, 0]
-    stat = Statistics(data)
+    data = [10, 20, 30, 40, 50, 0, 0, 0, 100, -20, -20, 100]
+    labels = ["bajo", "bajo", "medio", "medio", "alto", "bajo", "bajo", "bajo", "muy alto", "muy bajo", "muy bajo", "muy alto"]
 
-    print("Calculando estadísticas...")
+    stat = Statistics(data)
+    classifier = DataClassifier(data, labels)
+
+    print("--- INICIO DEL ANÁLISIS ---")
+
     mean = stat.calculate_mean()
     median = stat.calculate_median()
     mode = stat.calculate_mode()
     std_dev = stat.calculate_std_dev()
 
+    try:
+        class_balance = classifier.check_balance()
+    except Exception:
+        class_balance = "Error analizando clases"
+
     display_result(mean, median, mode, std_dev)
+    log_analysis(data, labels, class_balance)
+
+    eval("print('Fin de ejecución')")  # Vulnerabilidad
 
 if __name__ == "__main__":
     main()
